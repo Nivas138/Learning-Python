@@ -1,0 +1,60 @@
+t = int(input())
+cnt = list()
+
+
+def ip(a, b):
+    a = list(a)
+    b = list(b)
+    Ucount1 = [0] * 26
+    Lcount1 = [0] * 26
+    Ucount2 = [0] * 26
+    Lcount2 = [0] * 26
+    diff =0
+    count = 0
+    Ualpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    Ualpha = list(Ualpha)
+    Lalpha = 'abcdefghijklmnopqrstuvwxyz'
+    Lalpha = list(Lalpha)
+    for i in range(0, len(a)):
+        for k in range(0, 26):
+            if a[i] == Ualpha[k]:
+                Ucount1[k] = Ucount1[k] + 1
+            elif a[i] == Lalpha[k]:
+                Lcount1[k] = Lcount1[k] + 1
+                break
+    for i in range(0, len(b)):
+        for k in range(0, 26):
+            if b[i] == Ualpha[k]:
+                Ucount2[k] = Ucount2[k] + 1
+                break
+            elif b[i] == Lalpha[k]:
+                Lcount2[k] = Lcount2[k] + 1
+                break
+    for i in range(0,25):
+        if (Ucount1[i]==Ucount2[i]):
+            continue
+        else:
+            if Ucount1[i]<Ucount2[i]:
+                diff=Ucount2[i]-Ucount1[i]
+            elif Ucount1[i]>Ucount2[i]:
+                diff=Ucount1[i]-Ucount2[i]
+            count=count+diff
+    for i in range(0,25):
+        if (Lcount1[i]== Lcount2[i]):
+            continue
+        else:
+            if Lcount1[i]<Lcount2[i]:
+                diff=Lcount2[i]-Lcount1[i]
+            elif Lcount1[i]>Lcount2[i]:
+                diff=Lcount1[i]-Lcount2[i]
+            count=count+diff
+
+    return count
+
+for i in range(0, t):
+    a = input()
+    b = input()
+    c = ip(a, b)
+    cnt.append(c)
+for i in range(0, t):
+    print(cnt[i])
