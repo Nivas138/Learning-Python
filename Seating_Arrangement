@@ -1,0 +1,62 @@
+#include<stdio.h>
+#define SIZE 100000
+int main()
+{
+ int N[SIZE],j,i,k;
+ int T;
+ scanf("%d",&T);
+ for(i=0;i<T;i++)
+ {
+  scanf("\n%d",&N[i]);
+ }
+ for(i=0;i<T;i++)
+ {
+ if(N[i]<109)
+ {
+ k=N[i]%12;
+ switch(k)
+ {
+     case 0:j=N[i]-11;
+            printf("%d WS\n",j);
+            break;
+     case 1:j=N[i]+11;
+            printf("%d WS\n",j);
+            break;
+     case 2:j=N[i]+9;
+            printf("%d MS\n",j);
+            break;
+     case 3:j=N[i]+7;
+            printf("%d AS\n",j);
+            break;
+     case 4:j=N[i]+5;
+            printf("%d AS\n",j);
+            break;
+     case 5:j=N[i]+3;
+            printf("%d MS\n",j);
+            break;
+     case 6:j=N[i]+1;
+            printf("%d WS\n",j);
+            break;
+     case 7:j=N[i]-1;
+            printf("%d WS\n",j);
+            break;
+     case 8:j=N[i]-3;
+            printf("%d MS\n",j);
+            break;
+     case 9:j=N[i]-5;
+            printf("%d AS\n",j);
+            break;
+     case 10:j=N[i]-7;
+            printf("%d AS\n",j);
+            break;
+     case 11:j=N[i]-9;
+            printf("%d MS\n",j);
+            break;
+     case 12:j=N[i]-11;
+            printf("%d WS\n",j);
+            break;
+ }
+ }
+ }
+return 0;
+}
